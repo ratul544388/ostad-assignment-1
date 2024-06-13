@@ -23,6 +23,15 @@ html {
   --green-hover: #28948b;
   --green-accent: #d8f0ee;
   --accent: #e6e6e6;
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --transition: all 0.2s ease-in-out;
+  --grid-cols-2: repeat(2, minmax(0, 1fr));
+  --grid-cols-3: repeat(3, minmax(0, 1fr));
+  --grid-cols-4: repeat(4, minmax(0, 1fr));
 }
 
 body {
@@ -62,23 +71,6 @@ h6 {
 /* Applying Same Color of Button to Anchor tag  */
 a {
   color: inherit;
-}
-
-/* Box Shadows  */
-.shadow {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-}
-
-.shadow-sm {
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-}
-
-.shadow-md {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}
-
-.shadow-lg {
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 .container {
@@ -235,6 +227,7 @@ header .mobile-sidebar ul li a.active {
 button,
 .btn {
   display: flex;
+  gap: 0.5rem;
   align-items: center;
   justify-content: center;
   height: 3rem;
@@ -260,17 +253,8 @@ button,
   border: 1.5px solid var(--green);
 }
 
-.btn-outline.footer {
-  border: 1px solid white;
-  color: white;
-}
-
 .btn-outline:hover {
   background-color: var(--green-accent);
-}
-
-.btn-outline.footer:hover {
-  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .btn-ghost {
@@ -293,6 +277,58 @@ button,
 button.rounded,
 .btn.rounded {
   border-radius: 9999px;
+}
+
+button.footer,
+.btn.footer {
+  background-color: white;
+  color: black;
+}
+
+button.footer:hover,
+.btn.footer:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-outline.footer {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.btn-outline.footer:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Input  */
+input {
+  border: 1px solid var(--blue-2);
+  height: 3rem;
+  background-color: transparent;
+  padding-inline: 0.7rem;
+  border-radius: 0.5rem;
+  caret-color: var(--green);
+  width: 100%;
+}
+
+input:focus {
+  outline: 2px solid var(--green);
+  border: 1px solid transparent;
+}
+
+textarea {
+  border: 1px solid var(--blue-2);
+  min-height: 6rem;
+  background-color: transparent;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  caret-color: var(--green);
+  width: 100%;
+}
+
+textarea:focus {
+  outline: 2px solid var(--green);
+  border: 1px solid transparent;
 }
 
 /* Main */
@@ -488,6 +524,95 @@ button.rounded,
   left: 0;
 }
 
+/* Projects  */
+.projects {
+  margin-block: 4rem;
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  scroll-margin-top: 6rem;
+}
+
+.projects .box-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.projects .box-2 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.projects ul {
+  display: grid;
+  gap: 2rem;
+}
+
+.projects ul li {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.projects ul li:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.projects ul li img {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.projects ul li .box-2 {
+  padding: 1rem;
+}
+
+.projects ul li .buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.projects ul li .btn {
+  width: 100%;
+  height: 2.5rem;
+}
+
+.projects ul li .box-wrapper {
+  padding: 0.8rem;
+}
+
+/* Contact  */
+.contact {
+  scroll-margin-top: 5rem;
+  background-color: white;
+}
+
+.contact .container {
+  padding-block: 4rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.contact .box-1 {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contact form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact form button {
+  margin-left: auto;
+}
+
 /* Reviews */
 .reviews {
   background-color: var(--blue-3);
@@ -505,8 +630,9 @@ button.rounded,
   gap: 2rem;
 }
 
-.reviews p {
+.reviews .comment {
   text-align: center;
+  max-width: 460px;
 }
 
 .reviews .stars {
@@ -578,7 +704,7 @@ footer .box-1 .buttons {
 
 footer .box-2 {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   gap: 8rem;
 }
@@ -595,18 +721,13 @@ footer .box-2 form {
 }
 
 footer .box-2 input {
-  border: 1.5px solid white;
+  border: 1px solid white;
   background-color: transparent;
   padding-inline: 0.5rem;
   border-radius: 0.5rem;
   caret-color: var(--green);
   width: 100%;
   max-width: 300px;
-}
-
-footer .box-2 input:focus {
-  outline: none;
-  border: 1.5px solid var(--green);
 }
 
 footer .box-2 .navigation-items {
@@ -712,6 +833,13 @@ button.embla-dot-button.active {
 }
 
 /* Media Queries  */
+
+@media only screen and (min-width: 500px) {
+  .projects ul {
+    grid-template-columns: var(--grid-cols-2);
+  }
+}
+
 @media only screen and (min-width: 640px) {
   .container {
     padding-inline: 2rem;
@@ -764,6 +892,10 @@ button.embla-dot-button.active {
   .services .box-1 .intro {
     max-width: fit-content;
   }
+
+  .projects ul {
+    grid-template-columns: var(--grid-cols-3);
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -782,10 +914,22 @@ button.embla-dot-button.active {
   .about .circle-2 {
     transform: translateY(0%);
   }
+
+  .contact .container {
+    grid-template-columns: var(--grid-cols-2);
+  }
+
+  footer .box-2 {
+    flex-direction: row;
+  }
 }
 
 @media only screen and (min-width: 1280px) {
   .services .box-2 ul {
     grid-template-columns: repeat(4, minmax(280px, 1fr));
+  }
+
+  .projects ul {
+    grid-template-columns: var(--grid-cols-4);
   }
 }
