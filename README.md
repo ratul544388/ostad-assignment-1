@@ -5,7 +5,7 @@ This repository contains a portfolio website project developed as part of the Os
 Key Features:
 - Responsive design
 - Built with HTML, CSS, and JavaScript
-- Integrates WordPress functionality for dynamic content
+- Fully functional Carousel with embla carousel
 
 Live Demo Link Blow
 
