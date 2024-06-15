@@ -488,6 +488,7 @@ textarea:focus {
   flex-direction: column;
   gap: 0.5rem;
   white-space: nowrap;
+  box-shadow: var(--shadow);
 }
 
 .about .image-wrapper {
