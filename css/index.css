@@ -6,7 +6,6 @@
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-  text-decoration: none;
 }
 
 html {
@@ -129,7 +128,6 @@ header .container nav ul li {
 }
 
 header nav ul li a {
-  text-decoration: none;
   color: var(--blue-2);
   position: relative;
 }
@@ -149,7 +147,7 @@ header .container nav ul li a::before {
   border-radius: 9999px;
   z-index: 1;
   width: 0;
-  transition: all 0.3s ease-in;
+  transition: var(--transition);
 }
 
 header .container nav ul li a:hover::before,
@@ -162,7 +160,7 @@ header .mobile-sidebar {
   inset: 0;
   z-index: 100;
   background-color: transparent;
-  transition: all 0.2s ease-in-out;
+  transition: var(--transition);
   pointer-events: none;
 }
 
@@ -178,7 +176,7 @@ header .sheet {
   height: 100%;
   background-color: white;
   transform: translateX(-100%);
-  transition: all 0.2s ease-in-out;
+  transition: var(--transition);
   position: relative;
   padding: 1rem 2rem;
 }
@@ -233,7 +231,7 @@ button,
   height: 3rem;
   padding-inline: 1.2rem;
   border-radius: 0.5rem;
-  transition: color 0.5s ease-in-out;
+  transition: var(--transition);
   white-space: nowrap;
   background-color: var(--green);
   color: white;
@@ -311,11 +309,6 @@ input {
   width: 100%;
 }
 
-input:focus {
-  outline: 2px solid var(--green);
-  border: 1px solid transparent;
-}
-
 textarea {
   border: 1px solid var(--blue-2);
   min-height: 6rem;
@@ -326,6 +319,7 @@ textarea {
   width: 100%;
 }
 
+input:focus,
 textarea:focus {
   outline: 2px solid var(--green);
   border: 1px solid transparent;
@@ -441,12 +435,12 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  transition: all 0.2s ease-in-out;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
 }
 
 .services .box-2 ul li:hover {
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .services .box-2 ul img {
